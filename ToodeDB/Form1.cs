@@ -80,12 +80,44 @@ namespace ToodeDB
                 MessageBox.Show("Viga");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(Toodetxt.Text != "" && Kogustxt.Text != "" && Hindtxt.Text != "")
+            {
+                command = new SqlCommand("UPDATE ToodeTable SET " +
+                    "ToodeNimetus=@toode,Kogus=@kogus,Hind=@hind WHERE Id=id", connect);
+                connect.Open();
+                command.Parameters.AddWithValue("@id", Id);
+                command.Parameters.AddWithValue("@toode", Toodetxt.Text);
+                command.Parameters.AddWithValue("@kogus", Kogustxt.Text);
+                command.Parameters.AddWithValue("@hind", Hindtxt.Text);
+                command.Parameters.AddWithValue("@pilt", save.FileName=save);
+                command.ExecuteNonQuery();
+                connect.Close();
+                DisplayData();
+                ClearData();
+                MessageBox.Show("Andmed on uuendatud");
+            }
+            else
+            {
+                MessageBox.Show("Viga");
+            }
+        }
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Id = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            Toodetxt.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+            Kogustxt.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+            Hindtxt.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
-            if (Toodetxt.Text != "" && Kogustxt.Text != "" && Hindtxt.Text != "")
+            if(Id!=0)
             {
-                command = new SqlCommand("UPDATE ToodeTable SET +" +
-                    "ToodeNimetus=@toode,Kogus=@kogus,Hind=@hind WHERE Id=id", connect);
+                command = new SqlCommand("DELETE ToodeTable WHERE Id=id", connect);
                 connect.Open();
                 command.Parameters.AddWithValue("@id", Id);
                 command.Parameters.AddWithValue("@toode", Toodetxt.Text);
@@ -95,7 +127,22 @@ namespace ToodeDB
                 connect.Close();
                 DisplayData();
                 ClearData();
-                MessageBox.Show("Andmed on uuendatud");
+                MessageBox.Show("Andmed on kustutatud");
+            }
+           
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpeg;*.bpm;*.png;*.jpg)|*.jpeg;*.bpm;*.png;*.jpg";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                SaveFileDialog save = new SaveFileDialog();
+                save.FileName = Toodetxt.Text + "_" + Id;
+                save.FileName = "Image Files(*.jpeg;*.bpm;*.png;*.jpg)|*.jpeg;*.bpm;*.png;*.jpg";
+                save.ShowDialog();
+
             }
         }
     }

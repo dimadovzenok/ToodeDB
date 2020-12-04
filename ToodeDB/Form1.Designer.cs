@@ -39,28 +39,27 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.toodedDataSet = new ToodeDB.ToodedDataSet();
             this.toodeTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toodedDataSet = new ToodeDB.ToodedDataSet();
             this.toodeTableTableAdapter = new ToodeDB.ToodedDataSetTableAdapters.ToodeTableTableAdapter();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toodeNimetusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kogusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hindDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toodedDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toodeTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toodedDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Hindtxt
             // 
-            this.Hindtxt.Location = new System.Drawing.Point(132, 125);
+            this.Hindtxt.Location = new System.Drawing.Point(132, 173);
             this.Hindtxt.Name = "Hindtxt";
             this.Hindtxt.Size = new System.Drawing.Size(131, 20);
             this.Hindtxt.TabIndex = 0;
             // 
             // Kogustxt
             // 
-            this.Kogustxt.Location = new System.Drawing.Point(132, 173);
+            this.Kogustxt.Location = new System.Drawing.Point(132, 125);
             this.Kogustxt.Name = "Kogustxt";
             this.Kogustxt.Size = new System.Drawing.Size(131, 20);
             this.Kogustxt.TabIndex = 1;
@@ -117,6 +116,7 @@
             this.button2.TabIndex = 8;
             this.button2.Text = "Uuenda";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -126,67 +126,57 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Kustuta";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.toodeNimetusDataGridViewTextBoxColumn,
-            this.kogusDataGridViewTextBoxColumn,
-            this.hindDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.toodeTableBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(338, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(338, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(450, 221);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // toodedDataSet
-            // 
-            this.toodedDataSet.DataSetName = "ToodedDataSet";
-            this.toodedDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
             // toodeTableBindingSource
             // 
             this.toodeTableBindingSource.DataMember = "ToodeTable";
             this.toodeTableBindingSource.DataSource = this.toodedDataSet;
             // 
+            // toodedDataSet
+            // 
+            this.toodedDataSet.DataSetName = "ToodedDataSet";
+            this.toodedDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // toodeTableTableAdapter
             // 
             this.toodeTableTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn
+            // button4
             // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.button4.Location = new System.Drawing.Point(271, 319);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(144, 66);
+            this.button4.TabIndex = 11;
+            this.button4.Text = "Lisa uus";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // toodeNimetusDataGridViewTextBoxColumn
+            // pictureBox1
             // 
-            this.toodeNimetusDataGridViewTextBoxColumn.DataPropertyName = "ToodeNimetus";
-            this.toodeNimetusDataGridViewTextBoxColumn.HeaderText = "ToodeNimetus";
-            this.toodeNimetusDataGridViewTextBoxColumn.Name = "toodeNimetusDataGridViewTextBoxColumn";
-            // 
-            // kogusDataGridViewTextBoxColumn
-            // 
-            this.kogusDataGridViewTextBoxColumn.DataPropertyName = "Kogus";
-            this.kogusDataGridViewTextBoxColumn.HeaderText = "Kogus";
-            this.kogusDataGridViewTextBoxColumn.Name = "kogusDataGridViewTextBoxColumn";
-            // 
-            // hindDataGridViewTextBoxColumn
-            // 
-            this.hindDataGridViewTextBoxColumn.DataPropertyName = "Hind";
-            this.hindDataGridViewTextBoxColumn.HeaderText = "Hind";
-            this.hindDataGridViewTextBoxColumn.Name = "hindDataGridViewTextBoxColumn";
+            this.pictureBox1.Location = new System.Drawing.Point(518, 265);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(213, 119);
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -201,8 +191,9 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.toodedDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toodeTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toodedDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,10 +214,8 @@
         private ToodedDataSet toodedDataSet;
         private System.Windows.Forms.BindingSource toodeTableBindingSource;
         private ToodedDataSetTableAdapters.ToodeTableTableAdapter toodeTableTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn toodeNimetusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kogusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hindDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
